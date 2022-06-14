@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/4b1814b539.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="main-body row justify-content-center">
+        <div class="search-bar col-12">
+          <form class="d-flex" role="search" id="search-form">
+            <input
+              class="form-control me-2 search-input"
+              type="search"
+              placeholder="Enter city..."
+              aria-label="Search"
+              id="search-input"
+            />
+            <button type="button submit" class="btn search-button">
+              Search
+            </button>
+            <button class="btn" id="nav-button">
+              <i class="fa-solid fa-location-dot" id="nav-icon"></i>
+            </button>
+          </form>
+        </div>
+
+        <div class="current col-sm-4">
+          <div class="card text-bg-light mb-3" style="max-width: 18rem">
+            <div class="card-header">
+              <div id="city-name"></div>
+              <div class="text-muted">
+                <div id="current-city-time"></div>
+                <div id="weather-type"></div>
+              </div>
+            </div>
+
+            <div class="btn-group" id="cels-or-fahr-button" role="group">
+              <button type="button" class="btn degrees-button" id="cels-button">
+                °C
+              </button>
+              <button type="button" class="btn degrees-button" id="fahr-button">
+                °F
+              </button>
+            </div>
+
+            <div class="card-body">
+              <h5 class="card-title current-degrees-line">
+                <span id="current-degrees"></span>°
+                <span class="weather-icon">
+                  <i
+                    class="fa-solid fa-sun fa-spin"
+                    style="--fa-animation-duration: 5s"
+                  ></i>
+                </span>
+              </h5>
+
+              <div class="text-muted precip-wind">
+                Humidity:
+                <span id="humid-current"></span>%
+                <br />
+                Wind:
+                <span id="wind-current"></span> m/s
+              </div>
+
+              <div class="card-text degrees">
+                <span id="today-max-degrees"></span>°
+                <hr />
+                <span id="today-min-degrees"></span>°
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="next-days-block col-sm-8 row">
+          <div
+            class="card text-bg-light day-card day-one col-sm"
+            style="max-width: 18rem"
+          >
+            <div class="card-header weekday">
+              <div id="weekday-in-one-day"></div>
+              <div class="date text-muted" id="date-in-one-day"></div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title weather-icon">
+                <i
+                  class="fa-solid fa-sun fa-spin"
+                  style="--fa-animation-duration: 5s"
+                ></i>
+              </h5>
+              <div class="card-text degrees">
+                <span id="max-degrees-second"></span>°
+                <hr />
+                <span id="min-degrees-second"></span>°
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="card text-bg-light day-card day-two col-sm"
+            style="max-width: 18rem"
+          >
+            <div class="card-header weekday">
+              <div id="weekday-in-two-days"></div>
+              <div class="date text-muted" id="date-in-two-days"></div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title weather-icon">
+                <i
+                  class="fa-solid fa-sun fa-spin"
+                  style="--fa-animation-duration: 5s"
+                ></i>
+              </h5>
+              <div class="card-text degrees">
+                <span id="max-degrees-third"></span>°
+                <hr />
+                <span id="min-degrees-third"></span>°
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="card text-bg-light day-card day-three col-sm"
+            style="max-width: 18rem"
+          >
+            <div class="card-header weekday">
+              <div id="weekday-in-three-days"></div>
+              <div class="date text-muted" id="date-in-three-days"></div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title weather-icon">
+                <i
+                  class="fa-solid fa-sun fa-spin"
+                  style="--fa-animation-duration: 5s"
+                ></i>
+              </h5>
+              <div class="card-text degrees">
+                <span id="max-degrees-fourth"></span>°
+                <hr />
+                <span id="min-degrees-fourth"></span>°
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="card text-bg-light day-card day-four col-sm"
+            style="max-width: 18rem"
+          >
+            <div class="card-header weekday">
+              <div id="weekday-in-four-days"></div>
+              <div class="date text-muted" id="date-in-four-days"></div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title weather-icon">
+                <i
+                  class="fa-solid fa-sun fa-spin"
+                  style="--fa-animation-duration: 5s"
+                ></i>
+              </h5>
+              <div class="card-text degrees">
+                <span id="max-degrees-fifth"></span>°
+                <hr />
+                <span id="min-degrees-fifth"></span>°
+              </div>
+            </div>
+          </div>
+          <div class="image col-12">
+            <img
+              src="images/Houses.svg"
+              alt="Houses"
+              class="houses-image day"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/script.js"></script>
+  </body>
+</html>

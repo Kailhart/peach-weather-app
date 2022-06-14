@@ -1,0 +1,188 @@
+hr {
+  margin: 0;
+}
+
+.container {
+  font-family: "Titan One", cursive;
+  font-weight: 100;
+  max-width: 700px;
+  border: 1px solid #dcbcb3;
+  border-radius: 0.375rem;
+  background: #ffe9e3;
+  margin-top: 10px;
+}
+
+.main-body {
+  margin: 0px auto;
+}
+
+.search-bar {
+  margin: 10px auto;
+  padding: 0;
+}
+
+.me-2 {
+  border-color: #dcbcb3;
+  color: #5f524e;
+}
+
+.search-button {
+  color: #5f524e;
+  background-color: #dcbcb3;
+  border-color: #5f524e;
+  margin-right: 10px;
+}
+
+.search-button:hover {
+  color: #ffe9e3;
+  background-color: #5f524e;
+  border-color: #5f524e;
+}
+
+.search-button:focus {
+  color: #5f524e;
+  background-color: #dcbcb3;
+  border-color: #5f524e;
+}
+
+#nav-button {
+  color: #5f524e;
+  background-color: #dcbcb3;
+  border-color: #5f524e;
+  margin-right: 10px;
+}
+
+#nav-button:hover {
+  color: #ffe9e3;
+  background-color: #5f524e;
+  border-color: #5f524e;
+}
+
+.card {
+  border-color: #dcbcb3;
+  display: inline-flexbox;
+  height: fit-content;
+}
+
+.card-header {
+  background: #dcbcb3;
+  color: white;
+}
+
+.current {
+  margin: 10px 0px auto;
+  padding: 0;
+}
+
+#city-name {
+  font-size: 30px;
+  line-height: 100%;
+  padding-bottom: 5px;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.degrees-button {
+  color: #5f524e;
+  border-color: #dcbcb3;
+  border-top: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  margin: 0;
+  padding: 2px 0px;
+}
+
+.degrees-button:hover {
+  color: #5f524e;
+  background-color: #dcbcb3;
+  border-color: #dcbcb3;
+}
+
+.degrees-button:focus {
+  color: #5f524e;
+  border-color: #dcbcb3;
+  background-color: #dcbcb3;
+}
+
+.degrees-button:active {
+  color: #5f524e;
+  border-color: #dcbcb3;
+  background-color: #dcbcb3;
+}
+
+.current .text-muted {
+  font-size: 15px;
+}
+
+.current-degrees-line {
+  font-size: 60px;
+  color: #5f524e;
+}
+
+.precip-wind {
+  color: #dcbcb3;
+  margin: 20px 0px 20px 0px;
+}
+
+.next-days-block {
+  padding: 0;
+  margin: 0px auto;
+}
+
+.day-card {
+  margin: 10px 0px 0px 3px;
+  padding: 0;
+  text-align: center;
+}
+
+.weekday {
+  font-size: 23px;
+  padding: 18px 0px;
+}
+
+.date {
+  font-size: 20px;
+}
+
+.weather-icon {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.degrees {
+  font-size: 20px;
+  color: #5f524e;
+  margin: 15px 0px;
+}
+
+.fa-sun {
+  color: #ffd700;
+}
+
+.fa-cloud-rain {
+  color: #6495ed;
+}
+
+.fa-cloud {
+  color: #00bfff;
+}
+
+.fa-bolt-lightning {
+  color: #f0e68c;
+}
+
+.fa-snowflake {
+  color: #add8e6;
+}
+
+.image {
+  padding: 0px;
+}
+
+.houses-image {
+  max-height: 75%;
+  display: block;
+  margin: 10px auto;
+}
