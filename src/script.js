@@ -199,5 +199,5 @@ function startCity() {
 startCity();
 //Celsius or Fahrenheit
 let celsButton = document.querySelector("#cels-button");
-let fahrButton = document.querySelector("#fahr-button");
+//let fahrButton = document.querySelector("#fahr-button");
 celsButton.focus();
