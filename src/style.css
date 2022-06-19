@@ -186,3 +186,13 @@ hr {
   display: block;
   margin: 10px auto;
 }
+
+#link-line {
+  text-align: center;
+  color: #dcbcb3;
+  font-family: "Titan One", cursive;
+}
+
+#my-link {
+  color: #5f524e;
+}
