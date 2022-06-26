@@ -113,39 +113,60 @@ function makePositiveDegrees(number) {
 //weather functions
 
 function ForecastChange(response) {
-  let maxTemp = Math.round(response.data.daily[0].temp.max);
-  todayMaxTemp.innerHTML = makePositiveDegrees(maxTemp);
-  let minTemp = Math.round(response.data.daily[0].temp.min);
-  todayMinTemp.innerHTML = makePositiveDegrees(minTemp);
+  todayMaxTempDegrees = makePositiveDegrees(
+    Math.round(response.data.daily[0].temp.max)
+  );
+  todayMinTempDegrees = makePositiveDegrees(
+    Math.round(response.data.daily[0].temp.min)
+  );
+  maxTempDegreesDayTwo = makePositiveDegrees(
+    Math.round(response.data.daily[1].temp.max)
+  );
+  minTempDegreesDayTwo = makePositiveDegrees(
+    Math.round(response.data.daily[1].temp.min)
+  );
+  maxTempDegreesDayThree = makePositiveDegrees(
+    Math.round(response.data.daily[2].temp.max)
+  );
+  minTempDegreesDayThree = makePositiveDegrees(
+    Math.round(response.data.daily[2].temp.min)
+  );
+  maxTempDegreesDayFour = makePositiveDegrees(
+    Math.round(response.data.daily[3].temp.max)
+  );
+  minTempDegreesDayFour = makePositiveDegrees(
+    Math.round(response.data.daily[3].temp.min)
+  );
+  maxTempDegreesDayFive = makePositiveDegrees(
+    Math.round(response.data.daily[4].temp.max)
+  );
+  minTempDegreesDayFive = makePositiveDegrees(
+    Math.round(response.data.daily[4].temp.min)
+  );
 
-  let maxTempSecond = Math.round(response.data.daily[1].temp.max);
-  maxTempTwo.innerHTML = makePositiveDegrees(maxTempSecond);
-  let minTempSecond = Math.round(response.data.daily[1].temp.min);
-  minTempTwo.innerHTML = makePositiveDegrees(minTempSecond);
+  todayMaxTemp.innerHTML = todayMaxTempDegrees;
+  todayMinTemp.innerHTML = todayMinTempDegrees;
+
+  maxTempTwo.innerHTML = maxTempDegreesDayTwo;
+  minTempTwo.innerHTML = minTempDegreesDayTwo;
   let iconDayTwoId = response.data.daily[1].weather[0].icon;
   let iconDayTwo = document.querySelector("#icon-in-one-day");
   iconDayTwo.setAttribute("src", `images/${iconDayTwoId}.png`);
 
-  let maxTempThird = Math.round(response.data.daily[2].temp.max);
-  maxTempThree.innerHTML = makePositiveDegrees(maxTempThird);
-  let minTempThird = Math.round(response.data.daily[2].temp.min);
-  minTempThree.innerHTML = makePositiveDegrees(minTempThird);
+  maxTempThree.innerHTML = maxTempDegreesDayThree;
+  minTempThree.innerHTML = minTempDegreesDayThree;
   let iconDayThreeId = response.data.daily[2].weather[0].icon;
   let iconDayThree = document.querySelector("#icon-in-two-days");
   iconDayThree.setAttribute("src", `images/${iconDayThreeId}.png`);
 
-  let maxTempFourth = Math.round(response.data.daily[3].temp.max);
-  maxTempFour.innerHTML = makePositiveDegrees(maxTempFourth);
-  let minTempFourth = Math.round(response.data.daily[3].temp.min);
-  minTempFour.innerHTML = makePositiveDegrees(minTempFourth);
+  maxTempFour.innerHTML = maxTempDegreesDayFour;
+  minTempFour.innerHTML = minTempDegreesDayFour;
   let iconDayFourId = response.data.daily[3].weather[0].icon;
   let iconDayFour = document.querySelector("#icon-in-three-days");
   iconDayFour.setAttribute("src", `images/${iconDayFourId}.png`);
 
-  let maxTempFifth = Math.round(response.data.daily[4].temp.max);
-  maxTempFive.innerHTML = makePositiveDegrees(maxTempFifth);
-  let minTempFifth = Math.round(response.data.daily[4].temp.min);
-  minTempFive.innerHTML = makePositiveDegrees(minTempFifth);
+  maxTempFive.innerHTML = maxTempDegreesDayFive;
+  minTempFive.innerHTML = minTempDegreesDayFive;
   let iconDayFiveId = response.data.daily[4].weather[0].icon;
   let iconDayFive = document.querySelector("#icon-in-four-days");
   iconDayFive.setAttribute("src", `images/${iconDayFiveId}.png`);
@@ -156,7 +177,8 @@ function weatherChange(response) {
 
   weatherType.innerHTML = response.data.weather[0].main;
 
-  currentTemp.innerHTML = Math.round(response.data.main.temp);
+  degreesCelsius = makePositiveDegrees(Math.round(response.data.main.temp));
+  currentTemp.innerHTML = degreesCelsius;
 
   let iconID = response.data.weather[0].icon;
   let icon = document.querySelector("#current-icon");
@@ -181,6 +203,7 @@ function changeWeatherByCityName(city) {
 }
 
 let form = document.querySelector("#search-form");
+
 function showWeatherInCity(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-input");
@@ -209,12 +232,68 @@ navigationButton.addEventListener("click", showWeatherHere);
 
 //starting page
 
-function startCity() {
-  let startCity = "Berlin";
-  changeWeatherByCityName(startCity);
-}
-startCity();
+changeWeatherByCityName("Berlin");
+
 //Celsius or Fahrenheit
+
+let degreesCelsius = null;
+let todayMaxTempDegrees = null;
+let todayMinTempDegrees = null;
+let maxTempDegreesDayTwo = null;
+let minTempDegreesDayTwo = null;
+let maxTempDegreesDayThree = null;
+let minTempDegreesDayThree = null;
+let maxTempDegreesDayFour = null;
+let minTempDegreesDayFour = null;
+let maxTempDegreesDayFive = null;
+let minTempDegreesDayFive = null;
+
 let celsButton = document.querySelector("#cels-button");
-//let fahrButton = document.querySelector("#fahr-button");
+let fahrButton = document.querySelector("#fahr-button");
 celsButton.focus();
+
+function convertToFahr(degrees) {
+  let degreesFahr = makePositiveDegrees(Math.round(degrees * 1.8 + 32));
+  return degreesFahr;
+}
+
+function displayDegreesInFahr() {
+  currentTemp.innerHTML = convertToFahr(degreesCelsius);
+
+  todayMaxTemp.innerHTML = convertToFahr(todayMaxTempDegrees);
+  todayMinTemp.innerHTML = convertToFahr(todayMinTempDegrees);
+
+  maxTempTwo.innerHTML = convertToFahr(maxTempDegreesDayTwo);
+  minTempTwo.innerHTML = convertToFahr(minTempDegreesDayTwo);
+
+  maxTempThree.innerHTML = convertToFahr(maxTempDegreesDayThree);
+  minTempThree.innerHTML = convertToFahr(minTempDegreesDayThree);
+
+  maxTempFour.innerHTML = convertToFahr(maxTempDegreesDayFour);
+  minTempFour.innerHTML = convertToFahr(minTempDegreesDayFour);
+
+  maxTempFive.innerHTML = convertToFahr(maxTempDegreesDayFive);
+  minTempFive.innerHTML = convertToFahr(minTempDegreesDayFive);
+}
+
+function displayDegreesInCels() {
+  currentTemp.innerHTML = degreesCelsius;
+
+  todayMaxTemp.innerHTML = todayMaxTempDegrees;
+  todayMinTemp.innerHTML = todayMinTempDegrees;
+
+  maxTempTwo.innerHTML = maxTempDegreesDayTwo;
+  minTempTwo.innerHTML = minTempDegreesDayTwo;
+
+  maxTempThree.innerHTML = maxTempDegreesDayThree;
+  minTempThree.innerHTML = minTempDegreesDayThree;
+
+  maxTempFour.innerHTML = maxTempDegreesDayFour;
+  minTempFour.innerHTML = minTempDegreesDayFour;
+
+  maxTempFive.innerHTML = maxTempDegreesDayFive;
+  minTempFive.innerHTML = minTempDegreesDayFive;
+}
+
+fahrButton.addEventListener("click", displayDegreesInFahr);
+celsButton.addEventListener("click", displayDegreesInCels);
