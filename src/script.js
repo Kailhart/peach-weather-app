@@ -253,6 +253,8 @@ let fahrButton = document.querySelector("#fahr-button");
 celsButton.focus();
 
 function convertToFahr(degrees) {
+  celsButton.classList.remove("active");
+  fahrButton.classList.add("active");
   let degreesFahr = makePositiveDegrees(Math.round(degrees * 1.8 + 32));
   return degreesFahr;
 }
@@ -277,6 +279,8 @@ function displayDegreesInFahr() {
 }
 
 function displayDegreesInCels() {
+  celsButton.classList.add("active");
+  fahrButton.classList.remove("active");
   currentTemp.innerHTML = degreesCelsius;
 
   todayMaxTemp.innerHTML = todayMaxTempDegrees;

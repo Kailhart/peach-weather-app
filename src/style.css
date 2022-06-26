@@ -106,10 +106,11 @@ hr {
   background-color: #dcbcb3;
 }
 
-.degrees-button:active {
+.degrees-button.active {
   color: #5f524e;
   border-color: #dcbcb3;
   background-color: #dcbcb3;
+  cursor: default;
 }
 
 .current .text-muted {
