@@ -26,6 +26,15 @@ hr {
   color: #5f524e;
 }
 
+.search-input::placeholder {
+  color: #dcbcb3;
+}
+
+.form-control:focus {
+  border: #dcbcb3 solid 1px;
+  box-shadow: none;
+}
+
 .search-button {
   color: #5f524e;
   background-color: #dcbcb3;
