@@ -49,7 +49,7 @@
         <div class="current col-sm-4">
           <div class="card text-bg-light mb-3" style="max-width: 18rem">
             <div class="card-header">
-              <div id="city-name"></div>
+              <div class="text-responsive" id="city-name"></div>
               <div class="text-muted">
                 <div id="current-city-time"></div>
                 <div id="weather-type"></div>
@@ -68,12 +68,7 @@
             <div class="card-body">
               <h5 class="card-title current-degrees-line">
                 <span id="current-degrees"></span>°
-                <span class="weather-icon">
-                  <i
-                    class="fa-solid fa-sun fa-spin"
-                    style="--fa-animation-duration: 5s"
-                  ></i>
-                </span>
+                <img id="current-icon" width="60" src="" />
               </h5>
 
               <div class="text-muted precip-wind">
@@ -103,12 +98,7 @@
               <div class="date text-muted" id="date-in-one-day"></div>
             </div>
             <div class="card-body">
-              <h5 class="card-title weather-icon">
-                <i
-                  class="fa-solid fa-sun fa-spin"
-                  style="--fa-animation-duration: 5s"
-                ></i>
-              </h5>
+              <img id="icon-in-one-day" width="60" src="" />
               <div class="card-text degrees">
                 <span id="max-degrees-second"></span>°
                 <hr />
@@ -126,12 +116,7 @@
               <div class="date text-muted" id="date-in-two-days"></div>
             </div>
             <div class="card-body">
-              <h5 class="card-title weather-icon">
-                <i
-                  class="fa-solid fa-sun fa-spin"
-                  style="--fa-animation-duration: 5s"
-                ></i>
-              </h5>
+              <img id="icon-in-two-days" width="60" src="" />
               <div class="card-text degrees">
                 <span id="max-degrees-third"></span>°
                 <hr />
@@ -149,12 +134,7 @@
               <div class="date text-muted" id="date-in-three-days"></div>
             </div>
             <div class="card-body">
-              <h5 class="card-title weather-icon">
-                <i
-                  class="fa-solid fa-sun fa-spin"
-                  style="--fa-animation-duration: 5s"
-                ></i>
-              </h5>
+              <img id="icon-in-three-days" width="60" src="" />
               <div class="card-text degrees">
                 <span id="max-degrees-fourth"></span>°
                 <hr />
@@ -172,12 +152,7 @@
               <div class="date text-muted" id="date-in-four-days"></div>
             </div>
             <div class="card-body">
-              <h5 class="card-title weather-icon">
-                <i
-                  class="fa-solid fa-sun fa-spin"
-                  style="--fa-animation-duration: 5s"
-                ></i>
-              </h5>
+              <img id="icon-in-four-days" width="60" src="" />
               <div class="card-text degrees">
                 <span id="max-degrees-fifth"></span>°
                 <hr />

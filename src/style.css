@@ -146,35 +146,10 @@ hr {
   font-size: 20px;
 }
 
-.weather-icon {
-  font-size: 50px;
-  margin-bottom: 20px;
-}
-
 .degrees {
   font-size: 20px;
   color: #5f524e;
   margin: 15px 0px;
-}
-
-.fa-sun {
-  color: #ffd700;
-}
-
-.fa-cloud-rain {
-  color: #6495ed;
-}
-
-.fa-cloud {
-  color: #00bfff;
-}
-
-.fa-bolt-lightning {
-  color: #f0e68c;
-}
-
-.fa-snowflake {
-  color: #add8e6;
 }
 
 .image {

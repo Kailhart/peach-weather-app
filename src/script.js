@@ -122,21 +122,33 @@ function ForecastChange(response) {
   maxTempTwo.innerHTML = makePositiveDegrees(maxTempSecond);
   let minTempSecond = Math.round(response.data.daily[1].temp.min);
   minTempTwo.innerHTML = makePositiveDegrees(minTempSecond);
+  let iconDayTwoId = response.data.daily[1].weather[0].icon;
+  let iconDayTwo = document.querySelector("#icon-in-one-day");
+  iconDayTwo.setAttribute("src", `images/${iconDayTwoId}.png`);
 
   let maxTempThird = Math.round(response.data.daily[2].temp.max);
   maxTempThree.innerHTML = makePositiveDegrees(maxTempThird);
   let minTempThird = Math.round(response.data.daily[2].temp.min);
   minTempThree.innerHTML = makePositiveDegrees(minTempThird);
+  let iconDayThreeId = response.data.daily[2].weather[0].icon;
+  let iconDayThree = document.querySelector("#icon-in-two-days");
+  iconDayThree.setAttribute("src", `images/${iconDayThreeId}.png`);
 
   let maxTempFourth = Math.round(response.data.daily[3].temp.max);
   maxTempFour.innerHTML = makePositiveDegrees(maxTempFourth);
   let minTempFourth = Math.round(response.data.daily[3].temp.min);
   minTempFour.innerHTML = makePositiveDegrees(minTempFourth);
+  let iconDayFourId = response.data.daily[3].weather[0].icon;
+  let iconDayFour = document.querySelector("#icon-in-three-days");
+  iconDayFour.setAttribute("src", `images/${iconDayFourId}.png`);
 
   let maxTempFifth = Math.round(response.data.daily[4].temp.max);
   maxTempFive.innerHTML = makePositiveDegrees(maxTempFifth);
   let minTempFifth = Math.round(response.data.daily[4].temp.min);
   minTempFive.innerHTML = makePositiveDegrees(minTempFifth);
+  let iconDayFiveId = response.data.daily[4].weather[0].icon;
+  let iconDayFive = document.querySelector("#icon-in-four-days");
+  iconDayFive.setAttribute("src", `images/${iconDayFiveId}.png`);
 }
 
 function weatherChange(response) {
@@ -145,6 +157,11 @@ function weatherChange(response) {
   weatherType.innerHTML = response.data.weather[0].main;
 
   currentTemp.innerHTML = Math.round(response.data.main.temp);
+
+  let iconID = response.data.weather[0].icon;
+  let icon = document.querySelector("#current-icon");
+  let iconAdress = `images/${iconID}.png`;
+  icon.setAttribute("src", iconAdress);
 
   humid.innerHTML = response.data.main.humidity;
   wind.innerHTML = Math.round(response.data.wind.speed);
@@ -163,6 +180,7 @@ function changeWeatherByCityName(city) {
   axios.get(apiWeatherUrl).then(weatherChange);
 }
 
+let form = document.querySelector("#search-form");
 function showWeatherInCity(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-input");
@@ -171,7 +189,6 @@ function showWeatherInCity(event) {
   form.reset();
 }
 
-let form = document.querySelector("#search-form");
 form.addEventListener("submit", showWeatherInCity);
 
 //geolocation feature
