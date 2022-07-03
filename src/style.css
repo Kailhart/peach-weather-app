@@ -93,35 +93,6 @@ hr {
   text-align: center;
 }
 
-.degrees-button {
-  color: #5f524e;
-  border-color: #dcbcb3;
-  border-top: none;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  margin: 0;
-  padding: 2px 0px;
-}
-
-.degrees-button:hover {
-  color: #5f524e;
-  background-color: #dcbcb3;
-  border-color: #dcbcb3;
-}
-
-.degrees-button:focus {
-  color: #5f524e;
-  border-color: #dcbcb3;
-  background-color: #dcbcb3;
-}
-
-.degrees-button.active {
-  color: #5f524e;
-  border-color: #dcbcb3;
-  background-color: #dcbcb3;
-  cursor: default;
-}
-
 .current .text-muted {
   font-size: 15px;
 }
@@ -129,6 +100,7 @@ hr {
 .current-degrees-line {
   font-size: 50px;
   color: #5f524e;
+  padding: 15px 0px;
 }
 
 .precip-wind {
