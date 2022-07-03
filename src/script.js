@@ -3,7 +3,9 @@ let weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 let days = [1, 2, 3, 4];
 
 //Current time
-function getCurrentTime() {
+function changeTime(response) {
+  currentTime = new Date(response.data.date_time);
+
   let weekday = weekdays[currentTime.getDay()];
   let hour = String(currentTime.getHours()).padStart(2, "0");
   let minutes = String(currentTime.getMinutes()).padStart(2, "0");
@@ -11,7 +13,6 @@ function getCurrentTime() {
   let time = document.querySelector("#current-city-time");
   time.innerHTML = `${weekday} ${hour}:${minutes}`;
 }
-getCurrentTime();
 
 //weatherApi
 
@@ -23,6 +24,7 @@ function makePositiveDegrees(number) {
 }
 
 let apiKey = "4004c8123fed687c059e5362ad5e8262";
+let geoApiKey = `ac8a1f42ca1044ff86134f9efa47abeb`;
 
 let cityName = document.querySelector("#city-name");
 let weatherType = document.querySelector("#weather-type");
@@ -110,6 +112,9 @@ function weatherChange(response) {
 
   let apiForecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely,hourly,current&appid=${apiKey}`;
   axios.get(apiForecastUrl).then(showForecast);
+
+  let apiGeoUrl = `https://api.ipgeolocation.io/timezone?apiKey=${geoApiKey}&lat=${lat}&long=${lon}`;
+  axios.get(apiGeoUrl).then(changeTime);
 }
 
 //Search city
