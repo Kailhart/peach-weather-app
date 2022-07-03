@@ -110,11 +110,11 @@ function weatherChange(response) {
   let lon = response.data.coord.lon;
   let lat = response.data.coord.lat;
 
-  let apiForecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely,hourly,current&appid=${apiKey}`;
-  axios.get(apiForecastUrl).then(showForecast);
-
   let apiGeoUrl = `https://api.ipgeolocation.io/timezone?apiKey=${geoApiKey}&lat=${lat}&long=${lon}`;
   axios.get(apiGeoUrl).then(changeTime);
+
+  let apiForecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely,hourly,current&appid=${apiKey}`;
+  axios.get(apiForecastUrl).then(showForecast);
 }
 
 //Search city
