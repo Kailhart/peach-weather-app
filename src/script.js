@@ -4,7 +4,8 @@ let days = [1, 2, 3, 4];
 
 //Current time
 function changeTime(response) {
-  currentTime = new Date(response.data.date_time);
+  currentTime = new Date(response.data.date_time_ymd.slice(0, -5));
+  console.log(currentTime);
 
   let weekday = weekdays[currentTime.getDay()];
   let hour = String(currentTime.getHours()).padStart(2, "0");
